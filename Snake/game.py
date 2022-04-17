@@ -6,12 +6,6 @@ from food import Food
 from grid import Grid
 from menu import Menu
 
-# Questo è un commento per provare git
-
-
-def add(a, b):
-    return a+b
-
 
 class SnakeGame:
     '''Main class'''
