@@ -6,27 +6,34 @@ from food import Food
 from grid import Grid
 from menu import Menu
 
+# Questo è un commento per provare git
+
+
+def add(a, b):
+    return a+b
+
 
 class SnakeGame:
     '''Main class'''
+
     def __init__(self):
         '''Inizialize the game'''
         pygame.init()
-        pygame.mixer.pre_init(44100,-16,2,512)
-        self.screen = pygame.display.set_mode((600,600))
+        pygame.mixer.pre_init(44100, -16, 2, 512)
+        self.screen = pygame.display.set_mode((600, 600))
         self.clock = pygame.time.Clock()
         self.FPS = 10
 
-        #Sound effect
+        # Sound effect
         self.score = pygame.mixer.Sound('point.wav')
         self.die_sound = pygame.mixer.Sound('dead.wav')
-        
-        #Game stat
+
+        # Game stat
         self.loop = False
         self.snake = Snake(self)
         self.food = Food(self)
         self.grid = Grid(self)
-        self.menu = Menu(self)    
+        self.menu = Menu(self)
 
     def run_game(self):
         '''Main loop'''
@@ -47,7 +54,7 @@ class SnakeGame:
             self.menu.run()
             if self.menu.start:
                 self.loop = True
-        
+
     def check_events(self):
         '''Respond to keypress'''
         for event in pygame.event.get():
@@ -94,17 +101,16 @@ class SnakeGame:
             self.FPS = 15
         else:
             self.FPS = 10
-                 
+
     def update_screen(self):
         '''Update rect on the screen'''
-        self.screen.fill((0,0,20))
-        self.grid.draw(0,0)
+        self.screen.fill((0, 0, 20))
+        self.grid.draw(0, 0)
         self.snake.draw()
         self.food.draw()
         pygame.display.update()
 
 
-    
 if __name__ == '__main__':
     snake = SnakeGame()
     snake.run_game()
